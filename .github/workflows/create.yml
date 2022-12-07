@@ -18,11 +18,11 @@ jobs:
         repository: thomasv314/gha-composite-test
         path: ./github/actions/gha-composite-test
         branch: main
-        token: ${{ github.token }}
+        token: ${{ secrets.GHA_TOKEN }}
 
     - name: Parse Comments
       id: parse-comments
       uses: ./github/actions/gha-composite-test/parse-comments
       with:
-        github-token: ${{ github.token }}
+        github-token: ${{ secrets.GHA_TOKEN }}
         #        github-comment-prefix: '/build'
