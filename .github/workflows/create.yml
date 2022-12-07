@@ -12,10 +12,14 @@ jobs:
   pr_comment:
     if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/build')
     steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: thomasv314/gha-composite-test
+        path: ./github/actions/gha-composite-test
 
     - name: Parse Comments
       id: parse-comments
-      uses: thomasv314/gha-composite-test/parse-comments
+      uses: ./github/actions/gha-composite-test/parse-comments
       with:
         github-token: ${{ github.token }}
         #        github-comment-prefix: '/build'
