@@ -15,14 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        repository: thomasv314/gha-composite-test
-        path: ./github/actions/gha-composite-test
+        repository: thomasv314/gha-composite
+        path: ./github/gha-composite/
         branch: main
         token: ${{ secrets.GHA_TOKEN }}
 
-    - name: Parse Comments
-      id: parse-comments
-      uses: ./github/actions/gha-composite-test/parse-comments
+    - uses: ./github/gha-composite/actions/parse-arguments
       with:
         github-token: ${{ secrets.GHA_TOKEN }}
+        command-prefix: "/build"
         #        github-comment-prefix: '/build'
