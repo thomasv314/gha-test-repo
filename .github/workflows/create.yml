@@ -17,6 +17,7 @@ jobs:
       with:
         repository: thomasv314/gha-composite-test
         path: ./github/actions/gha-composite-test
+        token: ${{ github.token }}
 
     - name: Parse Comments
       id: parse-comments
